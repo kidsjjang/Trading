@@ -39,3 +39,16 @@ C:\Users\hana\anaconda3\python.exe -m streamlit run dashboard.py
 
 The dashboard polls Yahoo Finance on a timer and re-runs the three agents on each refresh.
 Yahoo Finance is convenient for prototyping, but it should be treated as delayed/best-effort market data rather than guaranteed exchange-grade real-time data.
+
+## Deploy Online
+
+The easiest hosted option is Streamlit Community Cloud.
+
+1. Go to `https://share.streamlit.io/` and sign in with GitHub.
+2. Choose the repository `kidsjjang/Trading`.
+3. Choose branch `main`.
+4. Choose app file `streamlit_app.py`.
+5. In advanced settings, choose Python 3.12 if available.
+6. Click deploy.
+
+After deployment, make the app public from the Streamlit app's Share settings if you want anyone with the link to view it.
