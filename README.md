@@ -40,6 +40,21 @@ C:\Users\hana\anaconda3\python.exe -m streamlit run dashboard.py
 The dashboard polls Yahoo Finance on a timer and re-runs the three agents on each refresh.
 Yahoo Finance is convenient for prototyping, but it should be treated as delayed/best-effort market data rather than guaranteed exchange-grade real-time data.
 
+## Local LLM Agents
+
+The dashboard can optionally add a local LLM second-opinion layer using Ollama.
+This works only on the machine where Ollama is running, not on Streamlit Community Cloud.
+On this PC, `qwen3:4b-instruct` is the recommended default for all three agents because it is light enough for CPU inference while still following JSON instructions reliably.
+
+Install Ollama and pull the recommended local model:
+
+```powershell
+irm https://ollama.com/install.ps1 | iex
+C:\Users\hana\AppData\Local\Programs\Ollama\ollama.exe pull qwen3:4b-instruct
+```
+
+Then run the dashboard locally and turn on `Use local LLM agents` in the sidebar.
+
 ## Deploy Online
 
 The easiest hosted option is Streamlit Community Cloud.
