@@ -55,6 +55,26 @@ C:\Users\hana\AppData\Local\Programs\Ollama\ollama.exe pull qwen3:4b-instruct
 
 Then run the dashboard locally and turn on `Use local LLM agents` in the sidebar.
 
+## Hermes Agent Lite
+
+Hermes Agent is installed separately under `C:\Users\hana\AppData\Local\hermes`.
+The full Hermes CLI tool stack expects a large local context window and is too slow on this CPU-only PC, so this project uses a lighter Hermes Python Agent runner for experiments.
+
+Create the lightweight Ollama model used by the runner:
+
+```powershell
+C:\Users\hana\AppData\Local\Programs\Ollama\ollama.exe create trading-hermes-qwen-lite -f .\ollama-hermes-lite.Modelfile
+```
+
+Run a one-off Hermes Agent market review:
+
+```powershell
+C:\Users\hana\anaconda3\python.exe .\hermes_trading_agents.py --ticker ^KS11 --period 6mo --json-out outputs\hermes_ks11.json
+```
+
+In the dashboard, turn on `Use local LLM agents`, choose `Hermes Agent Lite`, and click `Run Hermes Agent Lite review`.
+Hermes Agent Lite is intentionally button-triggered because local CPU inference can take 1-3 minutes and should not run on every Streamlit rerun.
+
 ## Deploy Online
 
 The easiest hosted option is Streamlit Community Cloud.
